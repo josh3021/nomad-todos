@@ -23,7 +23,9 @@ function ToDoList() {
 
   useEffect(() => {
     const categories = localStorage.getItem("categories") as string;
-    setCategories(categories.split(","));
+    if (categories) {
+      setCategories(categories.split(","));
+    }
   }, [setCategories]);
 
   useEffect(() => {
