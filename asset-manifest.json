@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/nomad-todos/static/js/main.8c6039df.js",
+    "static/js/787.a5cad257.chunk.js": "/nomad-todos/static/js/787.a5cad257.chunk.js",
+    "index.html": "/nomad-todos/index.html",
+    "main.8c6039df.js.map": "/nomad-todos/static/js/main.8c6039df.js.map",
+    "787.a5cad257.chunk.js.map": "/nomad-todos/static/js/787.a5cad257.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.8c6039df.js"
+  ]
+}
