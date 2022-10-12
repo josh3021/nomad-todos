@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { categoriesState } from "../recoil/atoms";
 
 interface ICreateCategory {
@@ -8,11 +8,19 @@ interface ICreateCategory {
 
 function CreateCategory() {
   const { register, handleSubmit } = useForm<ICreateCategory>();
+  const categories = useRecoilValue(categoriesState);
   const setCategoriesState = useSetRecoilState(categoriesState);
   const handleValid = ({ newCategory }: ICreateCategory) => {
     setCategoriesState((v) => [...v, newCategory]);
     const oldCategories = localStorage.getItem("categories") as string;
-    localStorage.setItem("categories", `${oldCategories},${newCategory}`);
+    if (!oldCategories) {
+      localStorage.setItem(
+        "categories",
+        `${categories.join(",")},${newCategory}`
+      );
+    } else {
+      localStorage.setItem("categories", `${oldCategories},${newCategory}`);
+    }
   };
   return (
     <form onSubmit={handleSubmit(handleValid)}>

@@ -22,9 +22,9 @@ function ToDoList() {
   };
 
   useEffect(() => {
-    const categories = localStorage.getItem("categories") as string;
-    if (categories) {
-      setCategories(categories.split(","));
+    const savedCategories = localStorage.getItem("categories");
+    if (savedCategories) {
+      setCategories(savedCategories.split(","));
     }
   }, [setCategories]);
 
